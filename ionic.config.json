@@ -1,0 +1,7 @@
+{
+  "name": "BetterVentory",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
