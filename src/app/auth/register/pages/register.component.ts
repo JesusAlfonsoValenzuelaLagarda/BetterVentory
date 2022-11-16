@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 import { Worker } from 'src/app/auth/shared/models/worker.model'
-import { WorkerStatus } from '../../shared/enums/worker-status.enum';
+import { VerifyPhone } from '../../shared/models/verifyPhone.model';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -38,12 +39,29 @@ export class RegisterComponent implements OnInit {
     var worker:Worker = this.form.value;
     worker.status = this.status;
     worker.role = this.role;
-    console.log("Form Value final:", worker)
+    console.log("Form Value final:", worker);
 
-    this.registerService.register(worker).subscribe((response:Worker)=>{
-      //Navigate to home page
-      this.router.navigate(['/home'])
-    },error=>{
+    console.log("Value of cellphone:", worker.cellphone);
+    //Verify phone
+    this.registerService.verifyPhone(worker.cellphone).subscribe((response:VerifyPhone)=>{
+      if(response.valid == true){
+        //If is valid register the worker...
+        console.log("Cellphone are valid!");
+        this.registerService.register(worker).subscribe((response:Worker)=>{
+          //Navigate to home page
+          this.router.navigate(['/home'])
+        },error=>{
+          //Notificate error
+          console.log(error);
+        })
+
+      }else if (response.valid == false){
+        //If is invalid, notificate
+        console.log("Phone are invalid, please verify...")
+      }else {
+        console.log("something happened with response.valid value... ", response)
+      }
+    }, error=>{
       //Notificate error
       console.log(error);
     })

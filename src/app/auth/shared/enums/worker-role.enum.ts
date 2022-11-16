@@ -1,7 +1,7 @@
 export enum Role{
-    BOSS ="boss",
-    ASSISTANT = "assistant",
-    WORKER = "worker",
-    SEGURITY = "segurity",
-    MAINTENANCE = "maintenance"
+    BOSS ="Jefe",
+    ASSISTANT = "Asistente",
+    WORKER = "Empleado",
+    SEGURITY = "Seguridad",
+    MAINTENANCE = "Mantenimiento"
 }

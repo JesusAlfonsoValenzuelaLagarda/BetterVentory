@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UpdateUserDTO } from '../../requests-dto/update-user.dto';
 import { Tab3Service } from '../../services/tab3.service';
 import { Worker } from '../../../auth/shared/models/worker.model';
+import { VerifyPhone } from 'src/app/auth/shared/models/verifyPhone.model';
 
 @Component({
   selector: 'app-user-form',
@@ -68,10 +69,27 @@ export class UserFormComponent implements OnInit {
     this.workerData.role = this.role;
     this.workerData.status = this.status;
     console.log("Form Value final:", this.workerData)
-    this.tab3Service.updateUserData(this.workerData, this.userId).subscribe((response:UpdateUserDTO)=>{
-      console.log("Value of response: ", response);
-      this.router.navigate(['/tabs']);
-    },error=>{
+
+    //Verify phone
+    this.tab3Service.verifyPhone(this.workerData.cellphone).subscribe((response:VerifyPhone)=>{
+      if(response.valid == true){
+        //If is valid register the worker...
+        console.log("Cellphone are valid!");
+        this.tab3Service.updateUserData(this.workerData, this.userId).subscribe((response:UpdateUserDTO)=>{
+          console.log("Value of response: ", response);
+          this.router.navigate(['/tabs']);
+        },error=>{
+          //Notificate error
+          console.log(error);
+        })
+
+      }else if (response.valid == false){
+        //If is invalid, notificate
+        console.log("Phone are invalid, please verify...")
+      }else {
+        console.log("something happened with response.valid value... ", response)
+      }
+    }, error=>{
       //Notificate error
       console.log(error);
     })

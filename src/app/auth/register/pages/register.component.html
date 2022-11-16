@@ -46,7 +46,7 @@
 
         <ion-item>
           <ion-icon name="call" color="app" slot="start" ></ion-icon>
-          <ion-input placeholder="Número teléfonico" formControlName="cellphone">
+          <ion-input placeholder="+526442......" formControlName="cellphone">
           </ion-input>
         </ion-item>
         <div *ngIf="submitted && form.controls.cellphone.errors" class="ion-text-start error-message">
@@ -68,11 +68,11 @@
         <ion-list >
           <ion-item>
             <ion-select placeholder="Seleccionar el rol del trabajador"(ionChange)="handleChangeRole($event)">
-              <ion-select-option value="boss">Jefe</ion-select-option>
-              <ion-select-option value="assistant">Asistente</ion-select-option>
-              <ion-select-option value="worker">Empleado</ion-select-option>
-              <ion-select-option value="segurity">Seguridad</ion-select-option>
-              <ion-select-option value="maintenance">Mantenimiento</ion-select-option>
+              <ion-select-option value="Jefe">Jefe</ion-select-option>
+              <ion-select-option value="Asistente">Asistente</ion-select-option>
+              <ion-select-option value="Empleado">Empleado</ion-select-option>
+              <ion-select-option value="Seguridad">Seguridad</ion-select-option>
+              <ion-select-option value="Mantenimiento">Mantenimiento</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>
