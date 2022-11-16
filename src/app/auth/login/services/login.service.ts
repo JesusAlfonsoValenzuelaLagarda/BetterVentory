@@ -8,13 +8,9 @@ import { Worker } from '../../shared/models/worker.model'
   providedIn: 'root'
 })
 export class LoginService {
-
   constructor(public router: Router, private http: HttpClient) { }
 
-  logIn(credentials: any):Observable<Worker>{
-    return this.http.post<Worker>(`${environment.apiURl}/security/login`, credentials);
-  }
-  logInToTestOffline(credentials: any):Observable<Worker>{
-    return ;
+  logIn(credentials: Worker):Observable<Worker>{
+    return this.http.get<Worker>(`${environment.apiURl}/workers/`+credentials.workerId);
   }
 }

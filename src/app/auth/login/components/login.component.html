@@ -1,0 +1,51 @@
+<ion-content class="ion-text-center ion-padding">
+<ion-list>
+  <ion-button shape="round" type="button" size="small" (click)="returnToHome()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+</ion-list>
+<br>
+<br>
+<br>
+<ion-title><h1>Iniciar sesión</h1></ion-title>
+<br>
+<br>
+<br>
+<br>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item lines="none">
+        <ion-icon name="person" color="app" slot="start"></ion-icon>
+        <ion-input placeholder="Número de identificación"  formControlName="workerId"></ion-input>
+      </ion-item>
+      <div *ngIf="submitted && form.controls.workerId.errors" class="error-color">          
+        <div *ngIf="form.controls.workerId.errors.required">El número de identificación es requerido</div>
+        <div *ngIf="form.controls.workerId.errors.minlength">El número de identificación corto</div>
+        <div *ngIf="form.controls.workerId.errors.maxlength">El número de identificación largo</div>
+      </div>
+
+      <ion-item lines="none">
+        <ion-icon name="mail-outline" color="app" slot="start"></ion-icon>
+        <ion-input placeholder="Correo"  formControlName="email"></ion-input>
+      </ion-item>
+      <div *ngIf="submitted && form.controls.email.errors" class="error-color">          
+        <div *ngIf="form.controls.email.errors.required">El correo eléctronico es requerido</div>
+        <div *ngIf="form.controls.email.errors.email">El correo eléctronico ingresado no es valido, ingrese uno valido, ejemplo: ejemplo@gmail.com</div>
+        <div *ngIf="form.controls.email.errors.maxlength">El correo eléctronico es demasiado largo</div>
+      </div>
+
+      <ion-item lines="none">
+        <ion-icon name="lock-closed-outline" color="app" slot="start" ></ion-icon>
+        <ion-input  type="password" placeholder="Contraseña" formControlName="password">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="submitted && form.controls.password.errors" class="error-color">      
+        <div *ngIf="form.controls.password.errors.required">La contraseña es requerida</div>
+        <div *ngIf="form.controls.password.errors.minlength">La contraseña es demasiado corta</div>
+        <div *ngIf="form.controls.password.errors.maxlength">La contraseña es demasiado larga</div>
+      </div>
+
+    </ion-list>
+    <ion-button shape="round" expand="block" type="button" (click)="logIn()">Iniciar sesión
+    </ion-button>
+  </form>
+
+</ion-content>

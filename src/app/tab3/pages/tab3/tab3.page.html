@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sesión
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" class="ion-text-center ion-padding">
+  <div>
+    <h1> Mis datos </h1>
+  </div>
+  
+    <ion-card>
+    <ion-card-content>
+      <div><ion-label> Número de identificación: </ion-label>{{userId}}</div>
+    </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <div><ion-label> Nombre: </ion-label>{{name}}</div>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-content>
+        <div><ion-label> Correo eléctronico: </ion-label>{{email}}</div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+         <div><ion-label> Rango: </ion-label>{{role}}</div>
+      </ion-card-content>
+    </ion-card>
+  <ion-button shape="round" expand="block" type="button" (click)="updateData(userId)"> Actualizar mis datos </ion-button>
+  <ion-button shape="round" expand="block" type="button" (click)="closeSesion()"> Cerrar sesión </ion-button>
+</ion-content>
