@@ -27,6 +27,14 @@ const routes: Routes = [
     loadChildren: () => import('./tab3/components/user-form/user-form.module').then( m => m.UserFormModule)
   },
   {
+    path: 'add-package-form',
+    loadChildren: () => import('./tab1/pages/add-package-form/add-package-form.module').then( m => m.AddPackageFormModule)
+  },
+  {
+    path: 'update-package-form/:id',
+    loadChildren: () => import('./tab1/pages/update-package-form/update-package-form.module').then( m => m.UpdatePackageFormModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

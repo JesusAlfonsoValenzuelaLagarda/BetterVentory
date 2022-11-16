@@ -5,13 +5,10 @@
 </ion-header>
 
 <ion-content class="ion-text-center ion-padding">
-  <ion-list>
     <ion-button shape="round" type="button" size="small" (click)="returnSesion()"><ion-icon name="arrow-back"></ion-icon></ion-button>
-  </ion-list>
-
+  <div><ion-title> Datos actuales </ion-title></div>
   <ion-card>
     <ion-card-content>
-      <div><ion-title> Datos actuales </ion-title></div>
       <div><ion-label> Número de identificación: </ion-label>{{userId}}</div>
       <div><ion-label> Nombre: </ion-label>{{name}}</div>
       <div><ion-label> Correo eléctronico: </ion-label>{{email}}</div>

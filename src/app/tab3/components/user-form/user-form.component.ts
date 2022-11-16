@@ -68,7 +68,7 @@ export class UserFormComponent implements OnInit {
     this.workerData.role = this.role;
     this.workerData.status = this.status;
     console.log("Form Value final:", this.workerData)
-    this.tab3Service.updateUserData(this.workerData).subscribe((response:UpdateUserDTO)=>{
+    this.tab3Service.updateUserData(this.workerData, this.userId).subscribe((response:UpdateUserDTO)=>{
       console.log("Value of response: ", response);
       this.router.navigate(['/tabs']);
     },error=>{

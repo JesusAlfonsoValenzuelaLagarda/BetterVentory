@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario de registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding">
+
+    <ion-button shape="round" type="button" size="small" (click)="returnToTab1()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+
+
+  <form [formGroup]="form" class="ion-text-center ion-padding">
+    <ion-list>
+
+      <ion-item lines="none">
+        <ion-icon name="eye" color="app" slot="start" ></ion-icon>
+        <ion-input  placeholder="Número de identificación" formControlName="packageId">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="submitted && form.controls.packageId.errors" class="error-color">          
+        <div *ngIf="form.controls.packageId.errors.required">El número de identificación es requerido</div>
+        <div *ngIf="form.controls.packageId.errors.minlength">El número de identificación es demasiado corto</div>
+        <div *ngIf="form.controls.packageId.errors.maxlength">El número de identificación es demasiado largo</div>
+      </div> 
+
+      <ion-item lines="none">
+        <ion-icon name="cube" color="app" slot="start" ></ion-icon>
+        <ion-input  placeholder="Producto que contiene el paquete" formControlName="product">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="submitted && form.controls.product.errors" class="error-color">          
+        <div *ngIf="form.controls.product.errors.required">El producto es requerido</div>
+        <div *ngIf="form.controls.product.errors.maxlength">El producto es demasiado largo</div>
+      </div> 
+
+      <ion-item lines="none">
+        <ion-icon name="bookmark" color="app" slot="start" ></ion-icon>
+        <ion-input  placeholder="Nombre asignado al paquete" formControlName="name">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="submitted && form.controls.name.errors" class="error-color">          
+        <div *ngIf="form.controls.name.errors.required">El nombre es requerido</div>
+        <div *ngIf="form.controls.name.errors.maxlength">El nombre es demasiado largo</div>
+      </div> 
+
+      <ion-item>
+        <ion-icon name="calculator" color="app" slot="start" ></ion-icon>
+        <ion-input placeholder="Cantidad" formControlName="amount">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="submitted && form.controls.amount.errors" class="ion-text-start error-message">
+        <div *ngIf="form.controls.amount.errors.required">Debes ingresar una cantidad</div>
+        <div *ngIf="form.controls.amount.errors.maxlength">La cantidad es demasiada larga</div>
+      </div> 
+
+      <ion-list >
+        <ion-item>
+          <ion-select placeholder="¿Es fragil?"(ionChange)="handleChangeFragile($event)">
+            <ion-select-option value="true">Fragil</ion-select-option>
+            <ion-select-option value="false">No es fragil</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+    </ion-list>
+    <br>
+
+    <ion-button shape="round" expand="block" type="button" (click)="savePackage()">Guardar</ion-button>
+  </form>
+</ion-content>

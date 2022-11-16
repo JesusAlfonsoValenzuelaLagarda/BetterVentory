@@ -1,0 +1,39 @@
+ion-content {
+    --background: #303030;
+  }
+  
+  ion-item {
+    --ion-background-color: #ffffff;
+    --padding-start: 8px !important;
+    --border-radius: 30px;
+    margin-bottom: 15px;
+  }
+  
+  ion-title {
+    color: #ffffff;
+  }
+  ion-list {
+    --ion-background-color: #303030;
+  }
+  
+  ion-icon{
+    margin-right:10px !important; 
+  }
+  
+  ion-button {
+    --background: #ffffff;
+    border-color: #555555;
+    color: #000000;
+  }
+  
+  .error-color{
+    font-size:15px;
+    color: var(--ion-color-error);
+    margin-top: -10px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .app-name{
+    margin-bottom: 10%;
+    color: var(--ion-color-app);
+  }

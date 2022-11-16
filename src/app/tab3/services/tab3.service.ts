@@ -18,7 +18,7 @@ export class Tab3Service {
     return this.http.get<Worker>(`${environment.apiURl}/workers/`+userId);
   }
   //UpdateData
-  updateUserData(userData: UpdateUserDTO):Observable<Worker>{
-    return this.http.put<Worker>(`${environment.apiURl}/workers/`, userData);
+  updateUserData(userData: UpdateUserDTO, userId: string):Observable<Worker>{
+    return this.http.put<Worker>(`${environment.apiURl}/workers/`+userId, userData);
   }
 }
