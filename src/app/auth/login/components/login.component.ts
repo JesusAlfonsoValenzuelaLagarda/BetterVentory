@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       {
         console.log("You're logged")
         window.localStorage.setItem('sesion','open'); //Set local value sesion: open
-        window.localStorage.setItem('userId', this.workerData.workerId); //Set local value sesion: open
+        window.localStorage.setItem('userId', this.workerData.workerId); //Set local value workerId only use in segurity
         this.router.navigate(['tabs']); //redirect to tabs
         return;
       }
